@@ -1,0 +1,10 @@
+.icon {
+    align-items: center;
+    filter: brightness(0) invert(1);
+}
+
+.contact {
+    margin-top: 50px;
+    font-size: 30px;
+    color: white;
+}

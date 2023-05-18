@@ -2,7 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
+import MoonPhases from './pages/MoonPhases';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Homepage from './pages/Homepage';
 
 function App() {
   return (
@@ -12,11 +15,15 @@ function App() {
         <Routes>
           <Route 
             path='/' 
+            element={<Homepage />} 
+          />
+          <Route 
+            path='/search' 
             element={<SearchBooks />} 
           />
           <Route 
-            path='/saved' 
-            element={<SavedBooks />} 
+            path='/moonphases' 
+            element={<MoonPhases />} 
           />
           <Route 
             path='*'
@@ -24,6 +31,7 @@ function App() {
           />
         </Routes>
       </>
+      <Footer />
     </Router>
   );
 }
