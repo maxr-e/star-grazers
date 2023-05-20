@@ -1,20 +1,83 @@
-/*
-const data = "{\"style\":{\"moonStyle\":\"default\",\"backgroundStyle\":\"stars\",\"backgroundColor\":\"#000000\",\"headingColor\":\"#ffffff\",\"textColor\":\"#ffffff\"},\"observer\":{\"latitude\":33.775867,\"longitude\":-84.39733,\"date\":\"2023-05-17\"},\"view\":{\"type\":\"portrait-simple\",\"parameters\":{}}}";
+import React, { useState } from 'react';
 
-const xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+const MoonPhaseImage = () => {
+  const [data, setData] = useState({
+    style: {
+      moonStyle: 'default',
+      backgroundStyle: 'stars',
+      backgroundColor: '#000000',
+      headingColor: '#ffffff',
+      textColor: '#ffffff'
+    },
+    observer: {
+      latitude: '',
+      longitude: '',
+      date: ''
+    },
+    view: {
+      type: 'portrait-simple',
+      parameters: {}
+    }
+  });
 
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
-  }
-});
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevState) => ({
+      ...prevState,
+      observer: {
+        ...prevState.observer,
+        [name]: value
+      }
+    }));
+  };
 
-xhr.open("POST", "https://api.astronomyapi.com/api/v2/studio/moon-phase");
-xhr.setRequestHeader("Authorization", "Basic MTQ2YzU0ZjAtNTkyOS00ZjM1LWExOWUtNWNmZDljMTViOTM5OjhkNjQ4YWM1ZjVjNGRhMWRhZmE2MzEwYjNjYmE1OTMxNjg3Y2M2NmY5NzM0YWE1MDYxNzg1ZmUyNmM4YmZmOGM2ZjkzZTcxM2VkMTQwYmYwNjA1NzcxOGVmNmQwNmVkNWU3MDczZmJmZWRmYmZiZjA4ZDNhZjVkNjM2NGUzZTY5N2JlYmFkMGU1ZjA5OTI0YzY3ZjBlYmFiNWJjN2FlMmNlZmUyMTBhMmIyZTdiMDE3MTY2YmQ1NzRmZjFjMGZmZjhhZDI0NGJkY2NlNzlhNDdhM2IyZTM2NDFkMTg0ZDk5");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Send the data to the API and generate the image
+    console.log(data);
+  };
 
-xhr.send(data);
-*/
+  return (
+    <div>
+      <h2>Generate Moon Phase Image</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="latitude">Latitude:</label>
+        <input
+          type="number"
+          id="latitude"
+          name="latitude"
+          value={data.observer.latitude}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="longitude">Longitude:</label>
+        <input
+          type="number"
+          id="longitude"
+          name="longitude"
+          value={data.observer.longitude}
+          onChange={handleChange}
+          required
+        />
+
+        <label htmlFor="date">Date:</label>
+        <input
+          type="date"
+          id="date"
+          name="date"
+          value={data.observer.date}
+          onChange={handleChange}
+          required
+        />
+
+        <button type="submit">Generate Image</button>
+      </form>
+    </div>
+  );
+};
+
+export default MoonPhaseImage;
 
 
 
