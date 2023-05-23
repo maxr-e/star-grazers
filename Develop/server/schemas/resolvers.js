@@ -1,29 +1,67 @@
-const { Tech, Matchup } = require('../models');
-
+const { AuthenticationError } = require('apollo-server-express');
+const { User, Book } = require('../models');
+const { signToken } = require('../utils/auth');
+const { sign } = require('jsonwebtoken');
 const resolvers = {
-  Query: {
-    tech: async () => {
-      return Tech.find({});
+    Query: {
+        me: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOne({ _id: context.user._id })
+            }
+            throw new AuthenticationError("You are NOT logged in. Log.")
+        },
     },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
+    
+    Mutation: {
+        loginUser: async (parent, { email, password }) =>  {
+            const user = await User.findOne({ email });
+            if (!user) {
+                throw new AuthenticationError("No user with this email found...")
+            }
+            const token = signToken(user);
+            return { token, user };
+        },
+        //create user
+        addUser: async (parent, args) => {
+            console.log(args);
+            const user = await User.create(args);
+            const token = signToken(user);
+            return { token, user };
+        },
+        //add book to user's list
+        saveBook: async (parent, { bookData }, context) => {
+            if (context.user) {
+                const user = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: {
+                        savedBooks: bookData
+                    }},
+                    { 
+                        new: true,
+                        runValidators: true,
+                    },
+                );
+              return user;
+            }
+            throw new AuthenticationError("You need to log in");
+        },
+
+        //remove book from user's list
+        removeBook: async (parent, { bookId }, context) => {
+            if (context.user) {
+              const user = await User.findOneAndUpdate(
+                { _id: contex.user._id },
+                { $pull: { savedBooks: { bookId } } },
+                {
+                    new: true,
+                    runValidators: true,
+                }
+              );
+              return user;
+            }
+            throw new AuthenticationError("You still need to log in");
+        }
     },
-  },
-  Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
-    },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
-        { _id },
-        { $inc: { [`tech${techNum}_votes`]: 1 } },
-        { new: true }
-      );
-      return vote;
-    },
-  },
 };
 
 module.exports = resolvers;
