@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import MoonPhases from './pages/MoonPhases';
+import StarCharts from './pages/StarCharts';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
@@ -24,6 +25,10 @@ function App() {
           <Route 
             path='/moonphases' 
             element={<MoonPhases />} 
+          />
+          <Route 
+            path='/starcharts' 
+            element={<StarCharts />} 
           />
           <Route 
             path='*'

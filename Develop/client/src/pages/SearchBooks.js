@@ -116,7 +116,7 @@ const SearchBooks = () => {
         <h2 className='text-light pt-5'>
           {searchedBooks.length
             ? `Viewing ${searchedBooks.length} results:`
-            : 'Search for a book to begin'}
+            : 'Search for a star to begin'}
         </h2>
         <Row>
           {searchedBooks.map((book) => {
