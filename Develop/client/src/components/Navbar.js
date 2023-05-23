@@ -30,6 +30,9 @@ const AppNavbar = () => {
               <Nav.Link className="navlinks" as={Link} to='/moonphases'>
                 Moon Phases
               </Nav.Link>
+              <Nav.Link className="navlinks" as={Link} to='/starcharts'>
+                Star Charts
+              </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>

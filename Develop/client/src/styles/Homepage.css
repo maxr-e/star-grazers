@@ -1,6 +1,7 @@
 * {
     color: white;
 }
+
 .homepic {
     margin-top: 100px;
     height: 100%;
@@ -38,4 +39,30 @@
     color: #fff;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
+}
+
+.homeCard {
+    background-color: rgb(43, 39, 39);
+    height: 350px;
+    width: 22%;
+    border-radius: 12px;
+}
+
+.cardContainer {
+    margin-top: 10%;
+}
+
+.icon {
+    margin-left: 20px;
+    height: 30px;
+    width: 30px;
+}
+
+.cardTitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 28px;
+}
+
+.cardText {
+    font-family: 'Dosis', sans-serif;
 }
