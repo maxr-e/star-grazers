@@ -113,7 +113,7 @@ function StarCharts() {
             required
           />
           <label htmlFor="dropdown" >Type:</label>
-          <select id="dropdown" style={{ color: 'black' }}value={starType} onChange={handleStarChange}>
+          <select id="dropdown" style={{color: 'black'}} value={starType} onChange={handleStarChange}>
           <option value="">-- Select --</option>
           <option value="area">Area</option>
           <option value="constellation">Constellation</option>
@@ -121,12 +121,19 @@ function StarCharts() {
           <label htmlFor="dropdown" >Constellation:</label>
           <select id="dropdown" style={{ color: 'black' }}value={constellation} onChange={handleConstellationChange}>
           <option value="">-- Select --</option>
+          <option value="and">Andromeda</option><option value="ant">Antlia</option>
+          <option value="aps">Apus</option>
+          <option value="aqr">Aquarius</option>
+          <option value="aql">Aquila</option>
+          <option value="ara">Ara</option>
+          <option value="ari">Aries</option>
+          <option value="aur">Auriga</option>
+          <option value="cae">Caelum</option>
           <option value="ori">Orion</option>
-          <option value="constellation">Constellation</option>
           </select>
           <button type="button" class="btn btn-secondary StarBtn" onClick={getStarCharts}>Generate Image</button>
         </form> 
-        {starImage && <img src={starImage.imageUrl} alt="Star Chart" style={{ width: 800, height: 600 }}/>}
+        {starImage && <img src={starImage.imageUrl} className="starimg" alt="Star Chart" style={{ width: 800, height: 600 }}/>}
     </Container>
     </div>
   );

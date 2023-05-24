@@ -103,7 +103,7 @@ function MoonPhases() {
           />
           <button type="button" class="btn btn-secondary moonBtn" onClick={getMoonPhases}>Generate Image</button>
         </form> 
-        {moonImage && <img src={moonImage.imageUrl} alt="moon phase"/>}
+        {moonImage && <img src={moonImage.imageUrl} className="moonimg" alt="moon phase"/>}
     </Container>
     </div>
   );
