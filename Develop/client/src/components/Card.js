@@ -9,7 +9,7 @@ function HomeCard(props) {
           <Card.Text className="cardText">
             {props.description}
           </Card.Text>
-          <Button className="mt-3 mb-3" href={props.link}>
+          <Button className="view mt-3 mb-3" href={props.link}>
             {"View"}
           </Button>
         </Card.Body>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import {
-  Container,
+  Container, 
 } from 'react-bootstrap';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import '../styles/MoonPhases.css';
 
 function MoonPhases() {
@@ -72,10 +73,23 @@ function MoonPhases() {
     };
 
   return (
-    <div>
+    <div className="moonBack">
       <h1>Generate Moon Phase</h1>
-      <Container className="border border-secondary bg-dark">
+      <Container className="border  ">
       <form className="form">
+      <Form className="emailOne">
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Address:</Form.Label>
+        <Form.Control type="email" placeholder="Enter Address" />
+        <Form.Text className="text-muted">
+          We'll never share your address with anyone else.
+        </Form.Text>
+      </Form.Group>
+      <Button className="moonButton" variant="danger" size="">
+        CONVERT
+      </Button>
+      </Form>
+        
         <p className="inputTitle">Longitude:</p>
         <input className="inputs form-control"
           value={longitude}

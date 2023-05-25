@@ -4,11 +4,9 @@
 
 .dateText {
      color: black;
+     margin-right: 20px;
 }
 
-.border {
-    
-}
 
 .dateBox {
     margin-top: 50px;
@@ -43,4 +41,42 @@ option {
     100% {
       opacity: 1;
     }
+}
+
+.moonBack {
+    background-image: url("../images/moonPhase.jpeg");
+    background-size: cover;
+}
+
+.starBack {
+    background-image: url("../images/starrySky.jpeg");
+    background-size: cover;
+}
+
+.emailOne {
+    width:30%;
+}
+
+.emailTwo {
+    width:30%;
+}
+
+.moonButton {
+    position: relative;
+    left: 500px;
+    bottom: 75px;
+}
+
+.starButton {
+    position: relative;
+    left: 500px;
+    bottom: 75px;
+}
+
+.dateSection {
+
+}
+
+#dropdown {
+    margin-right: 20px;
 }

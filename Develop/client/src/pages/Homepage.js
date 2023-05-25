@@ -23,19 +23,21 @@ const Homepage = () => {
           aliquet sapien. Donec velit lacus, mollis eu…
         </p>
         <div className="row d-flex"> 
-        <HomeCard
+        <HomeCard className="cardOne"
+        
           title="Star Search"
           description="Search for details about stars!"
           link="/search"
           icon={Star}
         />
-        <HomeCard
+        
+        <HomeCard className="cardOne"
           title="Moon Phases"
           description="Use your location to see moonphases!"
           link="/moonphases"
           icon={Moon}
         />
-        <HomeCard
+        <HomeCard className="cardOne"
           title="Star Charts"
           description="Use your location to see constellations!"
           link="/starcharts"

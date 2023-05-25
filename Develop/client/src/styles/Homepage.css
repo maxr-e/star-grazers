@@ -53,6 +53,7 @@
     height: 350px;
     width: 22%;
     border-radius: 12px;
+    opacity: 0.73;
 }
 
 .cardContainer {
@@ -61,12 +62,16 @@
 }
 
 .icon {
+    position: relative;
+    left: 80px;
     margin-left: 20px;
     height: 30px;
     width: 30px;
 }
 
 .cardTitle {
+    left: 25px;
+    position: relative;
     font-family: 'Space Mono', monospace;
     font-size: 28px;
 }
@@ -83,11 +88,18 @@
 }
 
 .celestialCosmicBackGround {
-    background-image: url("../images/universee.jpeg");
+    background-image: url("../images/galaxyNasa.jpeg");
     background-size: cover;
 }
 
 .d-flex {
     display: flex!important;
     justify-content: space-evenly;
+}
+
+.view {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    top: 40px;
 }
