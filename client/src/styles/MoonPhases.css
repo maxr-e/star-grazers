@@ -1,0 +1,46 @@
+.inputTitle {
+    color: white;
+}
+
+.dateText {
+     color: black;
+}
+
+.border {
+    
+}
+
+.dateBox {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.moonBtn, .starBtn {
+    margin-left: 30px;
+}
+
+.inputTitle {
+    margin-top: 20px;
+}
+
+.inputs {
+    width: 30%;
+}
+
+option {
+    color: black;
+}
+
+.moonimg, .starimg {
+    opacity: 0;
+    animation: transition .75s ease-in-out .75s forwards;
+}
+
+@keyframes transition {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}

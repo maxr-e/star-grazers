@@ -1,0 +1,12 @@
+.icon {
+    align-items: center;
+    filter: brightness(0%);
+}
+
+.contact {
+    margin-top: 50px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+}
+
+.footerbackground {}

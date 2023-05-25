@@ -1,0 +1,44 @@
+* {
+    /* font-family: Lucida Console; */
+}
+
+body {
+    text-decoration: none;
+    /* background-image: url(../images/stars.jpg); */
+    background-color: black;
+}
+  
+.nav {
+background-color: rgb(0, 0, 0);
+}
+
+
+.navlinks {
+    display: inline-block;
+    list-style: none;
+    font-size: 18px;
+    color: white;
+    padding: 0 10px;
+    margin: 0 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.navlinks:hover {
+    color: #be6b0b;
+}
+
+.navlinks:after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #be6b0b;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+  }
+
+.navlinks:hover::after{
+    width:100%;
+}
