@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {
-  Container,
+  Container, Button
 } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 
 import '../styles/MoonPhases.css';
 
@@ -83,10 +84,22 @@ function StarCharts() {
     };
 
   return (
-    <div>
+    <div className="starBack">
       <h1>Generate Star Chart</h1>
-      <Container className="border border-secondary bg-dark">
+      <Container className="border">
       <form className="form">
+      <Form className="emailTwo">
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Address:</Form.Label>
+        <Form.Control type="email" placeholder="Enter Address" />
+        <Form.Text className="text-muted">
+          We'll never share your address with anyone else.
+        </Form.Text>
+      </Form.Group>
+      <Button className="starButton" variant="danger" size="">
+        CONVERT
+      </Button>
+      </Form>
         <p className="inputTitle">Longitude:</p>
         <input className="inputs form-control"
           value={longitude}
@@ -104,6 +117,7 @@ function StarCharts() {
           type="number"
           placeholder="Latitude"
         />
+        <div className="dateSection"> 
           <label className="dateBox" htmlFor="date">Date:</label>
           <input className="dateText"
             type="date"
@@ -132,6 +146,7 @@ function StarCharts() {
           <option value="ori">Orion</option>
           </select>
           <button type="button" class="btn btn-secondary StarBtn" onClick={getStarCharts}>Generate Image</button>
+          </div>
         </form> 
         {starImage && <img src={starImage.imageUrl} className="starimg" alt="Star Chart" style={{ width: 800, height: 600 }}/>}
     </Container>

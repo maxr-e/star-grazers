@@ -7,17 +7,21 @@ import { Navbar, Nav, Container, Modal, Tab, Card } from 'react-bootstrap';
 
 function Footer() {
     return (
-        <Container fluid>
+        <Container fluid className="actuallyAFoot">
         <h1 className="contact d-flex justify-content-center">Contact Us </h1>
         <div className="footer d-flex justify-content-center">
+
+            <div className="socialMedia">
         <a className="footericon " target="blank" href="https://github.com/maxr-e/star-grazers">
+    
         <img src= {Github} className="icon"/></a> 
 
         <a className="footericon" target="blank" href="https://www.linkedin.com/">
         <img src= {LinkedIn} className="icon"/></a>  
         
         <a className="footericon" target="blank" href="">
-        <img src= {Stack} className="icon"/></a>  
+        <img src= {Stack} className="icon"/></a> 
+        </div> 
         </div> 
         </Container>
   );

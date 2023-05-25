@@ -4,7 +4,18 @@
 }
 
 .contact {
-    margin-top: 50px;
+    padding-top:40px;
+    background-color: black;
     font-size: 30px;
     color: white;
+}
+
+.actuallyAFoot {
+    background-color: black;
+    padding-bottom:20px;
+}
+
+.socialMedia {
+    left: -70px;
+    position: relative;
 }
