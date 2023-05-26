@@ -116,7 +116,7 @@ function StarCharts() {
           placeholder="Latitude"
         />
         <div className="dateSection">
-          <label className="dateBox" htmlFor="date">Date:</label>
+          <label className="dateBox" htmlFor="date"><p>Date:</p></label>
           <input className="dateText"
             type="date"
             id="date"
@@ -128,7 +128,7 @@ function StarCharts() {
           <select id="dropdown" style={{color: 'black'}} value={starType} onChange={handleStarChange}>
           <option value="">-- Select --</option>
           <option value="area">Area</option>
-          <option value="constellation"><p>Constellation</p></option>
+          <option value="constellation">Constellation</option>
           </select>
           <label htmlFor="dropdown" ><p>Constellation:</p></label>
           <select id="dropdown" style={{ color: 'black' }}value={constellation} onChange={handleConstellationChange}>
