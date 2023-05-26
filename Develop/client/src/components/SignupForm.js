@@ -4,6 +4,8 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
 
+import '../styles/MoonPhases.css';
+
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
@@ -52,15 +54,15 @@ const SignupForm = () => {
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <Form className="signUp" noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your signup!
         </Alert>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='username'>Username</Form.Label>
-          <Form.Control
+          <Form.Label  htmlFor='username'>Username</Form.Label>
+          <Form.Control className="userName"
             type='text'
             placeholder='Your username'
             name='username'
@@ -73,7 +75,7 @@ const SignupForm = () => {
 
         <Form.Group className='mb-3'>
           <Form.Label htmlFor='email'>Email</Form.Label>
-          <Form.Control
+          <Form.Control className="email"
             type='email'
             placeholder='Your email address'
             name='email'
@@ -85,8 +87,8 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='password'>Password</Form.Label>
-          <Form.Control
+          <Form.Label  htmlFor='password'>Password</Form.Label>
+          <Form.Control className="password"
             type='password'
             placeholder='Your password'
             name='password'
