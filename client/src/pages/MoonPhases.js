@@ -11,6 +11,7 @@ function MoonPhases() {
   const [moonImage, setMoonImage] = useState(null);
   const [longitude, setLongitude] = useState('');
   const [latitude, setLatitude] = useState('');
+  const [address, setAddress] = useState('');
   const [date, setDate] = useState('');
   const [load, setLoad] = useState(false);
   const url = "https://api.astronomyapi.com/api/v2/studio/moon-phase";
@@ -55,6 +56,27 @@ function MoonPhases() {
     }
   };
 
+  const handleAddressSubmit = async () => {
+    const data = await fetch('/api/location', {
+      method: 'POST',
+      body: JSON.stringify({
+        address: address
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const dataWeWant = data[0];
+
+    setLongitude(dataWeWant.longitude);
+    setLatitude(dataWeWant.latitute);
+  }
+
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+    console.log(address)
+  };
 
 
     const handleLatitudeChange = (event) => {
@@ -76,15 +98,15 @@ function MoonPhases() {
       <div className="moonBack">
       <h1 className="mt-5 mb-5 moontitle">Generate Moon Phase</h1>
       <Container className="border moonbox">
-      <Form className="emailOne">
+      <Form className="emailOne" onSubmit={handleAddressSubmit}>
       <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
         <Form.Label><p>Address:</p></Form.Label>
-        <Form.Control type="email" placeholder="Enter Address" />
+        <Form.Control type="text" placeholder="Enter Address" onChange={handleAddressChange} />
         <Form.Text className="text-muted"><p>
           We'll never share your address with anyone else.</p>
         </Form.Text>
       </Form.Group>
-      <Button className="moonButton" variant="danger" size="">
+      <Button className="moonButton" variant="danger" size="" type="submit">
         CONVERT
       </Button>
       </Form>

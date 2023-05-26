@@ -9,6 +9,7 @@ function StarCharts() {
   const [starImage, setStarImage] = useState(null);
   const [longitude, setLongitude] = useState('');
   const [latitude, setLatitude] = useState('');
+  const [address, setAddress] = useState('');
   const [date, setDate] = useState('');
   const [starType, setStarType] = useState('');
   const [constellation, setConstellation] = useState('');
@@ -58,6 +59,27 @@ function StarCharts() {
       }
     };
 
+    const handleAddressSubmit = async () => {
+      const data = await fetch('/api/location', {
+        method: 'POST',
+        body: JSON.stringify({
+          address: address
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      const dataWeWant = data[0];
+  
+      setLongitude(dataWeWant.longitude);
+      setLatitude(dataWeWant.latitute);
+    };
+
+     const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+    console.log(address)
+  };
 
 
     const handleLatitudeChange = (event) => {
@@ -86,10 +108,10 @@ function StarCharts() {
       <h1 className="mt-5 mb-5 moontitle">Generate Star Chart</h1>
       <Container className=" starBack border">
       <form className="form">
-      <Form className="emailTwo">
+      <Form className="emailTwo" onSubmit={handleAddressSubmit}>
       <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
         <Form.Label><p>Address:</p></Form.Label>
-        <Form.Control type="email" placeholder="Enter Address" />
+        <Form.Control type="email" placeholder="Enter Address" onChange={handleAddressChange}/>
         <Form.Text className="text-muted"><p>
           We'll never share your address with anyone else.</p>
         </Form.Text>
