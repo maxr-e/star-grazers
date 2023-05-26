@@ -16,7 +16,7 @@ const AppNavbar = () => {
       <Navbar className="nav" variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-          Star-grazers
+          Star-gazers
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
