@@ -1,12 +1,30 @@
-.icon {
-    align-items: center;
-    filter: brightness(0%);
+.icons {
+    filter: brightness(0) invert(1);
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
 }
 
 .contact {
-    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    background-color: black;
     font-size: 30px;
-    color: rgb(0, 0, 0);
+    margin-left: 25px;
+    margin-top: 70px;
 }
 
-.footerbackground {}
+.actuallyAFoot {
+    background-color: black;
+    padding-bottom:20px;
+    color: white;
+}
+
+.socialMedia {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+

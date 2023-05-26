@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 import StarForm from '../components/StarForm';
 import StarList from '../components/StarList';
 
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME, QUERY_THOUGHTS } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -15,7 +15,7 @@ const Profile = () => {
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
-
+  
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -45,9 +45,6 @@ const Profile = () => {
         <div className="col-12 col-md-10 mb-5">
           <StarList
             thoughts={user.thoughts}
-            title={`${user.username}'s stars...`}
-            showTitle={false}
-            showUsername={false}
           />
         </div>
         {!userParam && (

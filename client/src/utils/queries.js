@@ -54,6 +54,7 @@ export const QUERY_ME = gql`
       email
       thoughts {
         _id
+        title
         thoughtText
         thoughtAuthor
         createdAt

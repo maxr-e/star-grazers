@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import {
   Container,
 } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 import '../styles/MoonPhases.css';
 
@@ -71,9 +73,21 @@ function MoonPhases() {
     };
 
   return (
-    <div>
-      <h1>Generate Moon Phase</h1>
-      <Container className="border border-secondary bg-dark">
+      <div className="moonBack">
+      <h1 className="mt-5 mb-5 moontitle">Generate Moon Phase</h1>
+      <Container className="border moonbox">
+      <Form className="emailOne">
+      <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
+        <Form.Label><p>Address:</p></Form.Label>
+        <Form.Control type="email" placeholder="Enter Address" />
+        <Form.Text className="text-muted"><p>
+          We'll never share your address with anyone else.</p>
+        </Form.Text>
+      </Form.Group>
+      <Button className="moonButton" variant="danger" size="">
+        CONVERT
+      </Button>
+      </Form>
       <form className="form">
         <p className="inputTitle">Longitude:</p>
         <input className="inputs form-control"
@@ -92,7 +106,7 @@ function MoonPhases() {
           type="number"
           placeholder="Latitude"
         />
-          <label className="dateBox" htmlFor="date">Date:</label>
+          <label className="dateBox" htmlFor="date"><p>Date:</p></label>
           <input className="dateText"
             type="date"
             id="date"
@@ -100,7 +114,7 @@ function MoonPhases() {
             onChange={handleDateChange}
             required
           />
-          <button type="button" class="btn btn-secondary moonBtn" onClick={getMoonPhases}>Generate Image</button>
+          <button type="button" class="btn btn-secondary postBtn" onClick={getMoonPhases}>Generate Image</button>
         </form> 
         {load ? (<h1>Loading...</h1>) : (<div></div>)}
         {moonImage && <img src={moonImage.imageUrl} className="moonimg" alt="moon phase"/>}

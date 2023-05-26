@@ -24,7 +24,7 @@ const StarList = ({
             <div className='usernameText'>{thought.thoughtAuthor} saw this star on {thought.createdAt}</div>
             </div>
             <div className="textBox p-2 mt-2">
-              <p>{thought.thoughtText}</p>
+              <span>{thought.thoughtText}</span>
             </div>
             </div>
             </div>
