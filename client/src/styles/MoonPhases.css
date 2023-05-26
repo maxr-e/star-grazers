@@ -1,0 +1,143 @@
+.inputTitle {
+    color: white;
+}
+
+.dateText {
+     color: black;
+     margin-right: 20px;
+}
+
+.dateBox {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.moonBtn, .starBtn {
+    margin-left: 30px;
+}
+
+.inputTitle {
+    margin-top: 20px;
+}
+
+.inputs {
+    width: 30%;
+}
+
+option {
+    color: black;
+}
+
+.moonimg, .starimg {
+    opacity: 0;
+    animation: transition .75s ease-in-out .75s forwards;
+}
+
+@keyframes transition {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.moonBack {
+    background-image: url("../images/moonPhase.jpeg");
+    background-size: cover;
+}
+
+.moonbox {
+    opacity: 0;
+    animation: transition 1s ease-in-out 1s forwards;
+}
+
+.moontitle {
+    opacity: 0;
+    animation: transition .5s ease-in-out .5s forwards;
+}
+
+.starBack {
+    background-image: url("../images/starrySky.jpeg");
+    background-size: cover;
+    opacity: 0;
+    animation: transition 1s ease-in-out 1s forwards;
+}
+
+.emailOne {
+    width:30%;
+}
+
+.emailTwo {
+    width:30%;
+}
+
+.moonButton {
+    position: relative;
+    left: 500px;
+    bottom: 75px;
+}
+
+.starButton {
+    position: relative;
+    left: 500px;
+    bottom: 75px;
+}
+
+.dateSection {
+
+}
+
+#dropdown {
+    margin-right: 20px;
+}
+
+p {
+    font-family: Kalam;
+}
+
+@keyframes transition {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.logIn {
+    background-image: url("../images/starrySky.jpeg");
+    background-size: cover;
+}
+
+.signUp {
+    background-image: url("../images/starrySky.jpeg");
+    background-size: cover;
+}
+
+.userName {
+    background-color: black;
+}
+
+.password {
+    background-color: black;
+}
+
+.email {
+   background-color: black;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--bs-modal-color);
+    pointer-events: auto;
+    background-image: url("../images/starrySky.jpeg");
+    background-size: cover;
+    background-clip: padding-box;
+    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+    border-radius: var(--bs-modal-border-radius);
+    outline: 0;
+}
