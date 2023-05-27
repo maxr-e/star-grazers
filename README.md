@@ -3,7 +3,7 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-his is a group project that utilizes the full MERN stack to deliver an app that lets users explore the night sky via stars, constellations, moon phase calendars and other celestial events.
+Star Gazers is a group project that utilizes the full MERN stack to deliver an app that lets users explore the night sky via stars, constellations, moon phase calendars and other celestial events. A profile and discussions posts let users connect and share the wonder of the universe in a community.
 
 ## Table of Contents
   * [Installation](#installation)
@@ -19,61 +19,63 @@ his is a group project that utilizes the full MERN stack to deliver an app that 
   
 ## Usage
   Dependencies required:
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0"
-    "axios": "^1.4.0",
-    "node-geocoder": "^4.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-
-  devDependencies required:
-    "concurrently": "^5.1.0"
+  * "@testing-library/jest-dom": "^5.16.5",
+  * "@testing-library/react": "^13.4.0",
+  * "@testing-library/user-event": "^13.5.0"
+  * "axios": "^1.4.0",
+  * "node-geocoder": "^4.2.0",
+  * "react": "^18.2.0",
+  * "react-dom": "^18.2.0",
+  * "react-scripts": "5.0.1",
+  * "web-vitals": "^2.1.4"
+   devDependencies required:
+  * "concurrently": "^5.1.0"
 
   Client Dependencies:
-    "@apollo/client": "^3.5.8",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "graphql": "^15.4.0",
-    "jwt-decode": "^3.1.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^0.2.4",
-    "bootstrap": "^5.2.3",
-    "react-bootstrap": "^2.7.0"
+  * "@apollo/client": "^3.5.8",
+  * "@testing-library/jest-dom": "^5.11.4",
+  * "@testing-library/react": "^11.1.0",
+  * "@testing-library/user-event": "^12.1.10",
+  * "graphql": "^15.4.0",
+  * "jwt-decode": "^3.1.2",
+  * "react": "^17.0.1",
+  * "react-dom": "^17.0.1",
+  * "react-router-dom": "^6.2.1",
+  * "react-scripts": "5.0.1",
+  * "web-vitals": "^0.2.4",
+  * "bootstrap": "^5.2.3",
+  * "react-bootstrap": "^2.7.0"
 
   Server Dependencies:
-    "apollo-server-express": "^3.6.2",
-    "bcrypt": "^5.0.0",
-    "express": "^4.17.2",
-    "graphql": "^16.3.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^7.0.2",
-    "node-geocoder": "^4.2.0"
-    devDependencies:
-    "nodemon": "^2.0.3"
+  * "apollo-server-express": "^3.6.2",
+  * "bcrypt": "^5.0.0",
+  * "express": "^4.17.2",
+  * "graphql": "^16.3.0",
+  * "jsonwebtoken": "^8.5.1",
+  * "mongoose": "^7.0.2",
+  * "node-geocoder": "^4.2.0"
+   devDependencies:
+  * "nodemon": "^2.0.3"
 
   Scripts used (./):
-    "start": "node server/server.js",
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+  * "start": "node server/server.js",
+  * "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+  * "install": "cd server && npm i && cd ../client && npm i",
+  * "seed": "cd server && npm run seed",
+  * "build": "cd client && npm run build"
 
   Scripts used (./server):
-    "start": "node server.js",
-    "watch": "nodemon",
-    "seed": "node seeders/seed.js"
+  * "start": "node server.js",
+  * "watch": "nodemon",
+  * "seed": "node seeders/seed.js"
 
 
   Screenshots of project in action:
-  
-  ![alt text](assets/images/screenshot.png)
+  Home Screen
+  ![home screen](assets/images/main_screen.png)
+
+Moon Phase Viewer
+  ![moon phases](assets/images/moon-phase-oakland-screen.png)
   
 ## Tests
   N/A
@@ -86,7 +88,9 @@ his is a group project that utilizes the full MERN stack to deliver an app that 
 
 ## Credits
 
-GitHub profiles: 14chenj92, maxr-e, saf1ya-c0d3z, trichau0206
+* https://github.com/14chenj92
+* https://github.com/saf1ya-c0d3z
+* https://github.com/trichau0206, trichauphuoc@gmail.com
 
 ## License:
 
@@ -112,8 +116,8 @@ Copyright 2023
         OTHER DEALINGS IN THE SOFTWARE.
 
 ## Badges
-(Optional)
-Badges may be hosted by [shields.io](https://shields.io/).
+![](https://img.shields.io/badge/GitHub-May%2025%2C%202023-yellow?style=plastic&logo=github)
+![](https://img.shields.io/badge/Carlson's%20Coders-May%202023-critical?style=plastic)
 
 ## Contact Me
   * GitHub: https://github.com/maxr-e
