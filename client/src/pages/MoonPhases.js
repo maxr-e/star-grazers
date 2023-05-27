@@ -56,22 +56,31 @@ function MoonPhases() {
     }
   };
 
-  const handleAddressSubmit = async () => {
-    const data = await fetch('/api/location', {
-      method: 'POST',
-      body: JSON.stringify({
-        address: address
-      }),
-      headers: {
-        'Content-Type': 'application/json'
+  const handleAddressSubmit = async (event) => {
+    event.preventDefault();
+    try{
+
+      const response = await fetch('/api/location', {
+        method: 'POST',
+        body: JSON.stringify({
+          address: address
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const data = await response.json();
+      
+      if (data.length > 0) {
+        const dataWeWant = data [0];
+        setLongitude(dataWeWant.longitude);
+        setLatitude(dataWeWant.latitude);
       }
-    });
-
-    const dataWeWant = data[0];
-
-    setLongitude(dataWeWant.longitude);
-    setLatitude(dataWeWant.latitute);
-  }
+    } catch (error) {
+      console.log.error(error);
+      }
+  };
 
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
@@ -120,8 +129,8 @@ function MoonPhases() {
           placeholder="Longitude"
         />
         <br></br>
-        <p class="inputTitle">Latitude:</p>
-        <input class="inputs form-control"
+        <p className="inputTitle">Latitude:</p>
+        <input className="inputs form-control"
           value={latitude}
           name="latitude"
           onChange={handleLatitudeChange}
@@ -136,7 +145,7 @@ function MoonPhases() {
             onChange={handleDateChange}
             required
           />
-          <button type="button" class="btn btn-secondary postBtn" onClick={getMoonPhases}>Generate Image</button>
+          <button type="button" className="btn btn-secondary postBtn" onClick={getMoonPhases}>Generate Image</button>
         </form> 
         {load ? (<h1>Loading...</h1>) : (<div></div>)}
         {moonImage && <img src={moonImage.imageUrl} className="moonimg" alt="moon phase"/>}

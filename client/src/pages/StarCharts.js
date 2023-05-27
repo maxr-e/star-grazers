@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {
-  Container, Button
+  Container,
 } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../styles/MoonPhases.css';
 
@@ -59,8 +60,11 @@ function StarCharts() {
       }
     };
 
-    const handleAddressSubmit = async () => {
-      const data = await fetch('/api/location', {
+    const handleAddressSubmit = async (event) => {
+    event.preventDefault();
+    try{
+
+      const response = await fetch('/api/location', {
         method: 'POST',
         body: JSON.stringify({
           address: address
@@ -69,14 +73,20 @@ function StarCharts() {
           'Content-Type': 'application/json'
         }
       });
-  
-      const dataWeWant = data[0];
-  
-      setLongitude(dataWeWant.longitude);
-      setLatitude(dataWeWant.latitute);
-    };
 
-     const handleAddressChange = (event) => {
+      const data = await response.json();
+      
+      if (data.length > 0) {
+        const dataWeWant = data [0];
+        setLongitude(dataWeWant.longitude);
+        setLatitude(dataWeWant.latitude);
+      }
+    } catch (error) {
+      console.log.error(error);
+      }
+  };
+
+  const handleAddressChange = (event) => {
     setAddress(event.target.value);
     console.log(address)
   };
@@ -102,24 +112,26 @@ function StarCharts() {
       setConstellation(event.target.value);
       console.log(constellation)
     };
-
+//     <form className="form">
+//        </form>
   return (
     <div >
       <h1 className="mt-5 mb-5 moontitle">Generate Star Chart</h1>
       <Container className=" starBack border">
-      <form className="form">
+ 
       <Form className="emailTwo" onSubmit={handleAddressSubmit}>
       <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
         <Form.Label><p>Address:</p></Form.Label>
-        <Form.Control type="email" placeholder="Enter Address" onChange={handleAddressChange}/>
+        <Form.Control type="text" placeholder="Enter Address" onChange={handleAddressChange}/>
         <Form.Text className="text-muted"><p>
           We'll never share your address with anyone else.</p>
         </Form.Text>
       </Form.Group>
-      <Button className="starButton" variant="danger" size="">
+      <Button className="starButton" variant="danger" size="" type="submit">
         CONVERT
       </Button>
       </Form>
+      <form className="form">
         <p className="inputTitle">Longitude:</p>
         <input className="inputs form-control"
           value={longitude}
@@ -129,14 +141,15 @@ function StarCharts() {
           placeholder="Longitude"
         />
         <br></br>
-        <p class="inputTitle">Latitude:</p>
-        <input class="inputs form-control"
+        <p className="inputTitle">Latitude:</p>
+        <input className="inputs form-control"
           value={latitude}
           name="latitude"
           onChange={handleLatitudeChange}
           type="number"
           placeholder="Latitude"
         />
+
         <div className="dateSection">
           <label className="dateBox" htmlFor="date"><p>Date:</p></label>
           <input className="dateText"
@@ -165,7 +178,7 @@ function StarCharts() {
           <option value="cae">Caelum</option>
           <option value="ori">Orion</option>
           </select>
-          <button type="button" class="btn btn-secondary postBtn" onClick={getStarCharts}>Generate Image</button>
+          <button type="button" className="btn btn-secondary postBtn" onClick={getStarCharts}>Generate Image</button>
           </div>
           </form> 
         {load ? (<h1>Loading...</h1>) : (<div></div>)}
