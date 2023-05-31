@@ -15,7 +15,7 @@ Star Gazers is a group project that utilizes the full MERN stack to deliver an a
   
 ## Installation
   
-  In the terminal, run: npm init, npm i, npm run develop
+  In the terminal, run: ```npm init```, ```npm i```, ```npm run develop```.
   
 ## Usage
   Dependencies required:
